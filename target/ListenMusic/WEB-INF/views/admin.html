@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang = "en" >
+<head >
+	<meta charset = "UTF-8" >
+	<title >后台</title >
+	<link href = "css/bootstrap.css" rel = "stylesheet" type = "text/css" />
+	<script src = "js/jquery-3.3.1.min.js" ></script >
+	<script src = "js/bootstrap.js" ></script>
+	<script src="js/adminLogin.js"></script>
+	<script src="js/adminFun.js"></script >
+</head >
+<body >
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+					        data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle
+					                                                                           navigation</span><span
+							class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">后台</a>
+				</div>
+				
+				<div class="collapse navbar-collapse"  id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="">
+							<a href="#" data-toggle="modal" data-target="#singerModal">添加歌手</a>
+						</li>
+						<li>
+							<a href="#" data-toggle="modal" data-target="#musicModal">添加歌曲</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)" onclick="queryAllMusic()">查看所有歌曲</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)" onclick="queryAllSonger()">查看所有歌手</a>
+						</li>
+					</ul>
+				</div>
+			
+			</nav>
+			<div id="myTable">
+				<div>欢迎使用倾听后台</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="singerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					添加歌手
+				</h4>
+			</div>
+				<div class="modal-body">
+					<input type = "text" name="singer" id="singer" placeholder="请输入歌手名">
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<input type = "submit" value="点击提交" class="btn btn-primary" onclick="addSonger()" >
+				</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+<div class="modal fade" id="musicModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel1">
+					添加歌曲
+				</h4>
+			</div>
+				<div class="modal-body">
+					<table class="table">
+						<tr>
+							<th>请输入歌曲名</th>
+							<td><input id="MusicName" type = "text" placeholder="请输入歌曲名" ></td>
+						</tr>
+						<tr>
+							<th>请输入歌手名</th>
+							<td><input id="SongerName" type = "text" placeholder="请输入歌手名" ></td>
+						</tr>
+						<tr>
+							<th>请输入歌曲播放地址</th>
+							<td><input id="MusicUrl" type = "text" placeholder="请输入歌曲播放地址" ></td>
+						</tr>
+						<tr>
+							<th>请输入歌词地址</th>
+							<td><input id="MusicLrc" type = "text" placeholder="请输入歌词地址" ></td>
+						</tr>
+						<tr>
+							<th>请输入歌曲封面地址</th>
+							<td><input id="MusicCover" type = "text" placeholder="请输入歌曲封面地址" ></td>
+						</tr>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<input type = "submit" value="点击提交" onclick="AddMusic()" class="btn btn-primary" >
+				</div>
+		</div>
+	</div>
+</div>
+</body >
+</html >

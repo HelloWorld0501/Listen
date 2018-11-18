@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html >
+<head >
+	<meta charset = "utf-8" />
+	<title >
+		倾听
+	</title >
+	<meta name = "description" content = "app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+	<meta name = "viewport" content = "width=device-width, initial-scale=1, maximum-scale=1" />
+	<meta content = "app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" name = "description" />
+	<meta content = "width=device-width, initial-scale=1, maximum-scale=1" name = "viewport" />
+	<!--<link href = "js/jPlayer/jplayer.flat.css" rel = "stylesheet" type = "text/css" />-->
+	<link href = "css/bootstrap.css" rel = "stylesheet" type = "text/css" />
+	<link href = "css/animate.css" rel = "stylesheet" type = "text/css" />
+	<link href = "css/font-awesome.min.css" rel = "stylesheet" type = "text/css" />
+	<link href = "css/simple-line-icons.css" rel = "stylesheet" type = "text/css" />
+	<link href = "css/font.css" rel = "stylesheet" type = "text/css" />
+	<link href = "css/app.css" rel = "stylesheet" type = "text/css" />
+	<link rel = "stylesheet" href = "css/APlayer.min.css" />
+	<script src = "js/jquery-3.3.1.min.js" ></script >
+	<script src="js/isAutoLogin.js"></script>
+	<!--[if lt IE 9]>
+	<script src = "js/ie/html5shiv.js" ></script >
+	<script src = "js/ie/respond.min.js" ></script >
+	<script src = "js/ie/excanvas.js" ></script >    <![endif]-->
+</head >
+<body class = "" >
+<section class = "vbox" >
+	<header class = "bg-white-only header header-md navbar navbar-fixed-top-xs" >
+		<div class = "navbar-header aside bg-info nav-xs" >
+			<a class = "btn btn-link visible-xs" data-target = "#nav,html" data-toggle = "class:nav-off-screen,open" >
+				<i class = "icon-list" > </i > </a > <a class = "navbar-brand text-lt" href="javascript:void(0)"
+			                                            onclick="goToOther('index')" >
+			<i class = "icon-earphones" > </i > <img alt = "." class = "hide" src = "images/logo.png" >
+			<span class = "hidden-nav-xs m-l-sm" >
+                                倾听
+                            </span >                </img>
+		</a > <a class = "btn btn-link visible-xs" data-target = ".user" data-toggle = "dropdown" >
+			<i class = "icon-settings" > </i > </a >
+		</div >
+		<ul class = "nav navbar-nav hidden-xs" >
+			<li >
+				<a class = "text-muted" data-toggle = "class:nav-xs,nav-xs" href = "#nav,.navbar-header" >
+					<i class = "fa fa-indent text" > </i > <i class = "fa fa-dedent text-active" > </i > </a >
+			</li >
+		</ul >
+		<form class = "navbar-form navbar-left input-s-lg m-t m-l-n-xs hidden-xs" onsubmit="return false;" role = "search" >
+			<div class = "form-group" >
+				<div class = "input-group" >
+                            <span class = "input-group-btn" >
+                                <button onclick="queryByMusicName()" class = "btn btn-sm bg-white btn-icon rounded"
+                                        type = "submit" >
+                                    <i class = "fa fa-search" >
+                                    </i >
+                                </button >
+                            </span >
+					<input id="text_MusicName" class = "form-control input-sm no-border rounded" placeholder = "搜索歌曲"
+					       type = "text" >
+					</input >
+				</div >
+			</div >
+		</form >
+		<div class = "navbar-right " >
+			<ul class = "nav navbar-nav m-n hidden-xs nav-user user" >
+				<li class = "dropdown" >
+					<a class = "dropdown-toggle bg clear" data-toggle = "dropdown" >
+                                <span class = "thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm" >
+                                    <img alt = "..." src = "images/a0.png" >
+                                    </img >
+                                </span >
+						<span id="username_title"></span> <b class = "caret" > </b > </a >
+					<ul class = "dropdown-menu animated fadeInRight" >
+						
+						<li >
+							<a href = "javascript:void(0)" onclick="Exit()" > 退出 </a >
+						</li >
+					</ul >
+				</li >
+			</ul >
+		</div >
+	</header >
+	<section >
+		<section class = "hbox stretch" >
+			<!-- .aside -->
+			<aside class = "bg-black dk nav-xs aside hidden-print" id = "nav" >
+				<section class = "vbox" >
+					<section class = "w-f-md scrollable" >
+						<div class = "slim-scroll" data-disable-fade-out = "true" data-distance = "0" data-height = "auto" data-railopacity = "0.2" data-size = "10px" >
+							<!-- nav -->
+							<nav class = "nav-primary hidden-xs" >
+								<ul class = "nav bg clearfix" >
+									<li class = "hidden-nav-xs padder m-t m-b-sm text-xs text-muted" >
+										功能区
+									</li >
+									<li >
+										<a href="javascript:void(0)" onclick="goToOther('index')" > <i class =
+												                                                           "icon-disc icon text-success" > </i >
+											<span class = "font-bold" >
+                                                        猜你喜欢
+                                                    </span > </a >
+									</li >
+									<li >
+										<a href="javascript:void(0)" onclick="goToOther('songer')"> <i class =
+												                                                          "icon-music-tone-alt icon text-info" > </i >
+											<span class = "font-bold" >
+                                                        歌手
+                                                    </span > </a >
+									</li >
+									<li >
+										<a href="javascript:void(0)" onclick="goToOther('collection')"> <i class =
+												                                       "icon-list icon text-info-dker" >
+										</i >
+											<span class = "font-bold" >
+                                                        收藏
+                                                    </span > </a >
+									</li >
+									<li class = "m-b hidden-nav-xs" >
+									</li >
+								</ul >
+							</nav >
+							<!-- / nav -->
+						</div >
+					</section >
+				</section >
+			</aside >
+			<section id = "content" >
+				<section class = "hbox stretch" >
+					<section >
+						<section class = "vbox" >
+							<section class = "scrollable padder-lg w-f-md" id = "bjax-target" >
+								<h2 class = "font-thin m-b" >
+									发现 <span class = "musicbar animate inline m-l-sm" style = "width:20px;height:20px" >
+                                                <span class = "bar1 a1 bg-primary lter" >
+                                                </span >
+                                                <span class = "bar2 a2 bg-info lt" >
+                                                </span >
+                                                <span class = "bar3 a3 bg-success" >
+                                                </span >
+                                                <span class = "bar4 a4 bg-warning dk" >
+                                                </span >
+                                                <span class = "bar5 a5 bg-danger dker" >
+                                                </span >
+                                            </span >
+								</h2 >
+								<!--首页封面区-->
+								<div class = "row row-sm" >
+									<div class = "col-xs-6 col-sm-4 col-md-3 col-lg-2" >
+										<div class = "item" >
+											<div class = "pos-rlt" >
+												<div class = "item-overlay opacity r r-2x bg-black" >
+													<div class = "center text-center m-t-n" >
+														<a class = "playNow" href = "javascript:void(0)"
+														   onclick = "PlaySong(this)"
+														   data-url = ""
+														   data-name = ""
+														   data-songer = ""
+														   data-lrc = ""
+														   data-cover = "" > <i class = "icon-control-play i-2x" > </i >
+														</a >
+													</div >
+													<div class = "bottom padder m-b-sm" >
+														<!--添加到收藏-->
+														<a class = "pull-right addColList" href = "javascript:void(0)"
+														   data-url = ""
+														   data-id = ""
+														   data-name = ""
+														   data-songer = ""
+														   onclick = "addCol(this)" >
+															<i class = "fa fa-heart-o" > </i > </a >
+														<a class = "addPlayList" href = "javascript:void(0)"
+														   onclick = "addList(this)"
+														   data-url
+																   = ""
+														   data-lrc = ""
+														   data-name = "" data-songer = ""
+														   data-cover = "" >
+															<!--加到播放列表-->
+															<i class = "fa fa-plus-circle" > </i > </a >
+													</div >
+												</div >
+												<img alt = "" class = "r r-2x img-full music_cover"
+												     src = "images/p3.jpg" />
+											</div >
+											<div class = "padder-v" >
+												<span class = "text-ellipsis song" href = "#" >
+													Morbi id neque quam liquam sollicitudin
+												</span >
+												<span class = "text-ellipsis text-xs text-muted songer" href = "#" >
+													Allen JH
+												</span >
+											</div >
+										</div >
+									</div >
+									<div class = "col-xs-6 col-sm-4 col-md-3 col-lg-2" >
+										<div class = "item" >
+											<div class = "pos-rlt" >
+												<div class = "item-overlay opacity r r-2x bg-black" >
+													<div class = "center text-center m-t-n" >
+														<a class = "playNow" href = "javascript:void(0)"
+														   onclick = "PlaySong(this)"
+														   data-url = ""
+														   data-name = ""
+														   data-songer = ""
+														   data-lrc = ""
+														   data-cover = "" > <i class = "icon-control-play i-2x" > </i >
+														</a >
+													</div >
+													<div class = "bottom padder m-b-sm" >
+														<!--添加到收藏-->
+														<a class = "pull-right addColList" href = "javascript:void(0)" data-url = "" data-id = ""
+														   data-name = "" data-songer = "" onclick = "addCol(this)" >
+															<i class = "fa fa-heart-o" > </i > </a >
+														<a class = "addPlayList" href = "javascript:void(0)"
+														   onclick = "addList(this)"
+														   data-url
+																   = ""
+														   data-lrc = ""
+														   data-name = "" data-songer = ""
+														   data-cover = "" >
+															<!--加到播放列表-->
+															<i class = "fa fa-plus-circle" > </i > </a >
+													</div >
+												</div >
+												<img alt = "" class = "r r-2x img-full music_cover"
+												     src = "images/p3.jpg" />
+											</div >
+											<div class = "padder-v" >
+												<span class = "text-ellipsis song" href = "#" >
+													Morbi id neque quam liquam sollicitudin
+												</span >
+												<span class = "text-ellipsis text-xs text-muted songer" href = "#" >
+													Allen JH
+												</span >
+											</div >
+										</div >
+									</div >
+									<div class = "clearfix visible-xs" >
+									</div >
+									<div class = "col-xs-6 col-sm-4 col-md-3 col-lg-2" >
+										<div class = "item" >
+											<div class = "pos-rlt" >
+												<div class = "item-overlay opacity r r-2x bg-black" >
+													<div class = "center text-center m-t-n" >
+														<a class = "playNow" href = "javascript:void(0)"
+														   onclick = "PlaySong(this)"
+														   data-url = ""
+														   data-name = ""
+														   data-songer = ""
+														   data-lrc = ""
+														   data-cover = "" > <i class = "icon-control-play i-2x" > </i >
+														</a >
+													</div >
+													<div class = "bottom padder m-b-sm" >
+														<!--添加到收藏-->
+														<a class = "pull-right addColList" href = "javascript:void(0)" data-url = "" data-id = ""
+														   data-name = "" data-songer = "" onclick = "addCol(this)" >
+															<i class = "fa fa-heart-o" > </i > </a >
+														<a class = "addPlayList" href = "javascript:void(0)"
+														   onclick = "addList(this)"
+														   data-url
+																   = ""
+														   data-lrc = ""
+														   data-name = "" data-songer = ""
+														   data-cover = "" >
+															<!--加到播放列表-->
+															<i class = "fa fa-plus-circle" > </i > </a >
+													</div >
+												</div >
+												<img alt = "" class = "r r-2x img-full music_cover"
+												     src = "images/p3.jpg" />
+											</div >
+											<div class = "padder-v" >
+												<span class = "text-ellipsis song" href = "#" >
+													Morbi id neque quam liquam sollicitudin
+												</span >
+												<span class = "text-ellipsis text-xs text-muted songer" href = "#" >
+													Allen JH
+												</span >
+											</div >
+										</div >
+									</div >
+									<div class = "col-xs-6 col-sm-4 col-md-3 col-lg-2" >
+										<div class = "item" >
+											<div class = "pos-rlt" >
+												<div class = "item-overlay opacity r r-2x bg-black" >
+													<div class = "center text-center m-t-n" >
+														<a class = "playNow" href = "javascript:void(0)"
+														   onclick = "PlaySong(this)"
+														   data-url = ""
+														   data-name = ""
+														   data-songer = ""
+														   data-lrc = ""
+														   data-cover = "" > <i class = "icon-control-play i-2x" > </i >
+														</a >
+													</div >
+													<div class = "bottom padder m-b-sm" >
+														<!--添加到收藏-->
+														<a class = "pull-right addColList" href = "javascript:void(0)" data-url = "" data-id = ""
+														   data-name = "" data-songer = "" onclick = "addCol(this)" >
+															<i class = "fa fa-heart-o" > </i > </a >
+														<a class = "addPlayList" href = "javascript:void(0)"
+														   onclick = "addList(this)"
+														   data-url
+																   = ""
+														   data-lrc = ""
+														   data-name = "" data-songer = ""
+														   data-cover = "" >
+															<!--加到播放列表-->
+															<i class = "fa fa-plus-circle" > </i > </a >
+													</div >
+												</div >
+												<img alt = "" class = "r r-2x img-full music_cover"
+												     src = "images/p3.jpg" />
+											</div >
+											<div class = "padder-v" >
+												<span class = "text-ellipsis song" href = "#" >
+													Morbi id neque quam liquam sollicitudin
+												</span >
+												<span class = "text-ellipsis text-xs text-muted songer" href = "#" >
+													Allen JH
+												</span >
+											</div >
+										</div >
+									</div >
+									<div class = "clearfix visible-xs" >
+									</div >
+									<div class = "col-xs-6 col-sm-4 col-md-3 col-lg-2" >
+										<div class = "item" >
+											<div class = "pos-rlt" >
+												<div class = "item-overlay opacity r r-2x bg-black" >
+													<div class = "center text-center m-t-n" >
+														<a class = "playNow" href = "javascript:void(0)"
+														   onclick = "PlaySong(this)"
+														   data-url = ""
+														   data-name = ""
+														   data-songer = ""
+														   data-lrc = ""
+														   data-cover = "" > <i class = "icon-control-play i-2x" > </i >
+														</a >
+													</div >
+													<div class = "bottom padder m-b-sm" >
+														<!--添加到收藏-->
+														<a class = "pull-right addColList" href = "javascript:void(0)" data-url = "" data-id = ""
+														   data-name = "" data-songer = "" onclick = "addCol(this)" >
+															<i class = "fa fa-heart-o" > </i > </a >
+														<a class = "addPlayList" href = "javascript:void(0)"
+														   onclick = "addList(this)"
+														   data-url
+																   = ""
+														   data-lrc = ""
+														   data-name = "" data-songer = ""
+														   data-cover = "" >
+															<!--加到播放列表-->
+															<i class = "fa fa-plus-circle" > </i > </a >
+													</div >
+												</div >
+												<img alt = "" class = "r r-2x img-full music_cover"
+												     src = "images/p3.jpg" />
+											</div >
+											<div class = "padder-v" >
+												<span class = "text-ellipsis song" href = "#" >
+													Morbi id neque quam liquam sollicitudin
+												</span >
+												<span class = "text-ellipsis text-xs text-muted songer" href = "#" >
+													Allen JH
+												</span >
+											</div >
+										</div >
+									</div >
+									<div class = "col-xs-6 col-sm-4 col-md-3 col-lg-2" >
+										<div class = "item" >
+											<div class = "pos-rlt" >
+												<div class = "item-overlay opacity r r-2x bg-black" >
+													<div class = "center text-center m-t-n" >
+														<a class = "playNow" href = "javascript:void(0)"
+														   onclick = "PlaySong(this)"
+														   data-url = ""
+														   data-name = ""
+														   data-songer = ""
+														   data-lrc = "" > <i class = "icon-control-play i-2x" > </i >
+														</a >
+													</div >
+													<div class = "bottom padder m-b-sm" >
+														<!--添加到收藏-->
+														<a class = "pull-right addColList" href = "javascript:void(0)" data-url = "" data-id = ""
+														   data-name = "" data-songer = "" onclick = "addCol(this)" >
+															<i class = "fa fa-heart-o" > </i > </a >
+														<a class = "addPlayList" href = "javascript:void(0)"
+														   onclick = "addList(this)"
+														   data-url
+																   = ""
+														   data-lrc = ""
+														   data-name = "" data-songer = ""
+														   data-cover = "" >
+															<!--加到播放列表-->
+															<i class = "fa fa-plus-circle" > </i > </a >
+													</div >
+												</div >
+												<img alt = "" class = "r r-2x img-full music_cover"
+												     src = "images/p3.jpg" />
+											</div >
+											<div class = "padder-v" >
+												<span class = "text-ellipsis song" href = "#" >
+													Morbi id neque quam liquam sollicitudin
+												</span >
+												<span class = "text-ellipsis text-xs text-muted songer" href = "#" >
+													Allen JH
+												</span >
+											</div >
+										</div >
+									</div >
+									<div class = "clearfix visible-xs" >
+									</div >
+									<div class = "col-xs-6 col-sm-4 col-md-3 col-lg-2" >
+										<div class = "item" >
+											<div class = "pos-rlt" >
+												<div class = "item-overlay opacity r r-2x bg-black" >
+													<div class = "center text-center m-t-n" >
+														<a class = "playNow" href = "javascript:void(0)"
+														   onclick = "PlaySong(this)"
+														   data-url = ""
+														   data-name = ""
+														   data-songer = ""
+														   data-lrc = ""
+														   data-cover = "" > <i class = "icon-control-play i-2x" > </i >
+														</a >
+													</div >
+													<div class = "bottom padder m-b-sm" >
+														<!--添加到收藏-->
+														<a class = "pull-right addColList" href = "javascript:void(0)" data-url = "" data-id = ""
+														   data-name = "" data-songer = "" onclick = "addCol(this)" >
+															<i class = "fa fa-heart-o" > </i > </a >
+														<a class = "addPlayList" href = "javascript:void(0)"
+														   onclick = "addList(this)"
+														   data-url
+																   = ""
+														   data-lrc = ""
+														   data-name = "" data-songer = ""
+														   data-cover = "" >
+															<!--加到播放列表-->
+															<i class = "fa fa-plus-circle" > </i > </a >
+													</div >
+												</div >
+												<img alt = "" class = "r r-2x img-full music_cover"
+												     src = "images/p3.jpg" />
+											</div >
+											<div class = "padder-v" >
+												<span class = "text-ellipsis song" href = "#" >
+													Morbi id neque quam liquam sollicitudin
+												</span >
+												<span class = "text-ellipsis text-xs text-muted songer" href = "#" >
+													Allen JH
+												</span >
+											</div >
+										</div >
+									</div >
+									<div class = "col-xs-6 col-sm-4 col-md-3 col-lg-2" >
+										<div class = "item" >
+											<div class = "pos-rlt" >
+												<div class = "item-overlay opacity r r-2x bg-black" >
+													<div class = "center text-center m-t-n" >
+														<a class = "playNow" href = "javascript:void(0)"
+														   onclick = "PlaySong(this)"
+														   data-url = ""
+														   data-name = ""
+														   data-songer = ""
+														   data-lrc = ""
+														   data-cover = "" > <i class = "icon-control-play i-2x" > </i >
+														</a >
+													</div >
+													<div class = "bottom padder m-b-sm" >
+														<!--添加到收藏-->
+														<a class = "pull-right addColList" href = "javascript:void(0)" data-url = "" data-id = ""
+														   data-name = "" data-songer = "" onclick = "addCol(this)" >
+															<i class = "fa fa-heart-o" > </i > </a >
+														<a class = "addPlayList" href = "javascript:void(0)"
+														   onclick = "addList(this)"
+														   data-url
+																   = ""
+														   data-lrc = ""
+														   data-name = "" data-songer = ""
+														   data-cover = "" >
+															<!--加到播放列表-->
+															<i class = "fa fa-plus-circle" > </i > </a >
+													</div >
+												</div >
+												<img alt = "" class = "r r-2x img-full music_cover"
+												     src = "images/p3.jpg" />
+											</div >
+											<div class = "padder-v" >
+												<span class = "text-ellipsis song" href = "#" >
+													Morbi id neque quam liquam sollicitudin
+												</span >
+												<span class = "text-ellipsis text-xs text-muted songer" href = "#" >
+													Allen JH
+												</span >
+											</div >
+										</div >
+									</div >
+									<div class = "clearfix visible-xs" >
+									</div >
+									<div class = "col-xs-6 col-sm-4 col-md-3 col-lg-2" >
+										<div class = "item" >
+											<div class = "pos-rlt" >
+												<div class = "item-overlay opacity r r-2x bg-black" >
+													<div class = "center text-center m-t-n" >
+														<a class = "playNow" href = "javascript:void(0)"
+														   onclick = "PlaySong(this)"
+														   data-url = ""
+														   data-name = ""
+														   data-songer = ""
+														   data-lrc = ""
+														   data-cover = "" > <i class = "icon-control-play i-2x" > </i >
+														</a >
+													</div >
+													<div class = "bottom padder m-b-sm" >
+														<!--添加到收藏-->
+														<a class = "pull-right addColList" href = "javascript:void(0)" data-url = "" data-id = ""
+														   data-name = "" data-songer = "" onclick = "addCol(this)" >
+															<i class = "fa fa-heart-o" > </i > </a >
+														<a class = "addPlayList" href = "javascript:void(0)"
+														   onclick = "addList(this)"
+														   data-url
+																   = ""
+														   data-lrc = ""
+														   data-name = "" data-songer = ""
+														   data-cover = "" >
+															<!--加到播放列表-->
+															<i class = "fa fa-plus-circle" > </i > </a >
+													</div >
+												</div >
+												<img alt = "" class = "r r-2x img-full music_cover"
+												     src = "images/p3.jpg" />
+											</div >
+											<div class = "padder-v" >
+												<span class = "text-ellipsis song" href = "#" >
+													Morbi id neque quam liquam sollicitudin
+												</span >
+												<span class = "text-ellipsis text-xs text-muted songer" href = "#" >
+													Allen JH
+												</span >
+											</div >
+										</div >
+									</div >
+									<div class = "col-xs-6 col-sm-4 col-md-3 col-lg-2" >
+										<div class = "item" >
+											<div class = "pos-rlt" >
+												<div class = "item-overlay opacity r r-2x bg-black" >
+													<div class = "center text-center m-t-n" >
+														<a class = "playNow" href = "javascript:void(0)"
+														   onclick = "PlaySong(this)"
+														   data-url = ""
+														   data-name = ""
+														   data-songer = ""
+														   data-lrc = ""
+														   data-cover = "" > <i class = "icon-control-play i-2x" > </i >
+														</a >
+													</div >
+													<div class = "bottom padder m-b-sm" >
+														<!--添加到收藏-->
+														<a class = "pull-right addColList" href = "javascript:void(0)" data-url = "" data-id = ""
+														   data-name = "" data-songer = "" onclick = "addCol(this)" >
+															<i class = "fa fa-heart-o" > </i > </a >
+														<a class = "addPlayList" href = "javascript:void(0)"
+														   onclick = "addList(this)"
+														   data-url
+																   = ""
+														   data-lrc = ""
+														   data-name = "" data-songer = ""
+														   data-cover = "" >
+															<!--加到播放列表-->
+															<i class = "fa fa-plus-circle" > </i > </a >
+													</div >
+												</div >
+												<img alt = "" class = "r r-2x img-full music_cover"
+												     src = "images/p3.jpg" />
+											</div >
+											<div class = "padder-v" >
+												<span class = "text-ellipsis song" href = "#" >
+													Morbi id neque quam liquam sollicitudin
+												</span >
+												<span class = "text-ellipsis text-xs text-muted songer" href = "#" >
+													Allen JH
+												</span >
+											</div >
+										</div >
+									</div >
+									<div class = "clearfix visible-xs" >
+									</div >
+									<div class = "col-xs-6 col-sm-4 col-md-3 col-lg-2" >
+										<div class = "item" >
+											<div class = "pos-rlt" >
+												<div class = "item-overlay opacity r r-2x bg-black" >
+													<div class = "center text-center m-t-n" >
+														<a class = "playNow" href = "javascript:void(0)"
+														   onclick = "PlaySong(this)"
+														   data-url = ""
+														   data-name = ""
+														   data-songer = ""
+														   data-lrc = ""
+														   data-cover = "" > <i class = "icon-control-play i-2x" > </i >
+														</a >
+													</div >
+													<div class = "bottom padder m-b-sm" >
+														<!--添加到收藏-->
+														<a class = "pull-right addColList" href = "javascript:void(0)" data-url = "" data-id = ""
+														   data-name = "" data-songer = "" onclick = "addCol(this)" >
+															<i class = "fa fa-heart-o" > </i > </a >
+														<a class = "addPlayList" href = "javascript:void(0)"
+														   onclick = "addList(this)"
+														   data-url
+																   = ""
+														   data-lrc = ""
+														   data-name = "" data-songer = ""
+														   data-cover = "" >
+															<!--加到播放列表-->
+															<i class = "fa fa-plus-circle" > </i > </a >
+													</div >
+												</div >
+												<img alt = "" class = "r r-2x img-full music_cover"
+												     src = "images/p3.jpg" />
+											</div >
+											<div class = "padder-v" >
+												<span class = "text-ellipsis song" href = "#" >
+													Morbi id neque quam liquam sollicitudin
+												</span >
+												<span class = "text-ellipsis text-xs text-muted songer" href = "#" >
+													Allen JH
+												</span >
+											</div >
+										</div >
+									</div >
+									<div class = "col-xs-6 col-sm-4 col-md-3 col-lg-2" >
+										<div class = "item" >
+											<div class = "pos-rlt" >
+												<div class = "item-overlay opacity r r-2x bg-black" >
+													<div class = "center text-center m-t-n" >
+														<a class = "playNow" href = "javascript:void(0)"
+														   onclick = "PlaySong(this)"
+														   data-url = ""
+														   data-name = ""
+														   data-songer = ""
+														   data-lrc = ""
+														   data-cover = "" > <i class = "icon-control-play i-2x" > </i >
+														</a >
+													</div >
+													<div class = "bottom padder m-b-sm" >
+														<!--添加到收藏-->
+														<a class = "pull-right addColList" href = "javascript:void(0)" data-url = "" data-id = ""
+														   data-name = "" data-songer = "" onclick = "addCol(this)" >
+															<i class = "fa fa-heart-o" > </i > </a >
+														<a class = "addPlayList" href = "javascript:void(0)"
+														   onclick = "addList(this)"
+														   data-url
+																   = ""
+														   data-lrc = ""
+														   data-name = "" data-songer = ""
+														   data-cover = "" >
+															<!--加到播放列表-->
+															<i class = "fa fa-plus-circle" > </i > </a >
+													</div >
+												</div >
+												<img alt = "" class = "r r-2x img-full music_cover"
+												     src = "images/p3.jpg" />
+											</div >
+											<div class = "padder-v" >
+												<span class = "text-ellipsis song" href = "#" >
+													Morbi id neque quam liquam sollicitudin
+												</span >
+												<span class = "text-ellipsis text-xs text-muted songer" href = "#" >
+													Allen JH
+												</span >
+											</div >
+										</div >
+									</div >
+								</div >
+								<div class = "row" >
+									<div class = "col-md-7" >
+										<h3 class = "font-thin" >
+											新歌
+										</h3 >
+										<div class = "row row-sm" >
+											<div class = "col-xs-6 col-sm-3" >
+												<div class = "item" >
+													<div class = "pos-rlt" >
+														<div class = "item-overlay opacity r r-2x bg-black" >
+															<div class = "center text-center m-t-n" >
+																<a class = "NewMusicPlayNow" href = "javascript:void(0)"
+																   onclick = "PlaySong(this)" data-songer
+																		   = ""
+																   data-name = "" data-url = ""
+																   data-cover = ""
+																   data-lrc = "" >
+																	<i class = "fa fa-play-circle i-2x" > </i > </a >
+															</div >
+														</div >
+														<!--<a href="#">-->
+														<img alt = "" class = "r r-2x img-full NewMusicCover"
+														     src = "images/a2.png" />
+														<!--</a>-->
+													</div >
+													<div class = "padder-v" >
+														<span class = "text-ellipsis NewMusicName" >
+															Spring rain
+														</span >
+														<span class = "text-ellipsis text-xs text-muted NewMusicArtist" >
+															Miaow
+														</span >
+													</div >
+												</div >
+											</div >
+											<div class = "col-xs-6 col-sm-3" >
+												<div class = "item" >
+													<div class = "pos-rlt" >
+														<div class = "item-overlay opacity r r-2x bg-black" >
+															<div class = "center text-center m-t-n" >
+																<a class = "NewMusicPlayNow" href = "javascript:void(0)"
+																   onclick = "PlaySong(this)" data-songer
+																		   = ""
+																   data-name = "" data-url = ""
+																   data-cover = ""
+																   data-lrc = "" >
+																	<i class = "fa fa-play-circle i-2x" > </i > </a >
+															</div >
+														</div >
+														<!--<a href="#">-->
+														<img alt = "" class = "r r-2x img-full NewMusicCover"
+														     src = "images/a2.png" />
+														<!--</a>-->
+													</div >
+													<div class = "padder-v" >
+														<span class = "text-ellipsis NewMusicName" >
+															Spring rain
+														</span >
+														<span class = "text-ellipsis text-xs text-muted NewMusicArtist" >
+															Miaow
+														</span >
+													</div >
+												</div >
+											</div >
+											<div class = "col-xs-6 col-sm-3" >
+												<div class = "item" >
+													<div class = "pos-rlt" >
+														<div class = "item-overlay opacity r r-2x bg-black" >
+															<div class = "center text-center m-t-n" >
+																<a class = "NewMusicPlayNow" href = "javascript:void(0)"
+																   onclick = "PlaySong(this)" data-songer
+																		   = ""
+																   data-name = "" data-url = ""
+																   data-cover = ""
+																   data-lrc = "" >
+																	<i class = "fa fa-play-circle i-2x" > </i > </a >
+															</div >
+														</div >
+														<!--<a href="#">-->
+														<img alt = "" class = "r r-2x img-full NewMusicCover"
+														     src = "images/a2.png" />
+														<!--</a>-->
+													</div >
+													<div class = "padder-v" >
+														<span class = "text-ellipsis NewMusicName" >
+															Spring rain
+														</span >
+														<span class = "text-ellipsis text-xs text-muted NewMusicArtist" >
+															Miaow
+														</span >
+													</div >
+												</div >
+											</div >
+											<div class = "col-xs-6 col-sm-3" >
+												<div class = "item" >
+													<div class = "pos-rlt" >
+														<div class = "item-overlay opacity r r-2x bg-black" >
+															<div class = "center text-center m-t-n" >
+																<a class = "NewMusicPlayNow" href = "javascript:void(0)"
+																   onclick = "PlaySong(this)" data-songer
+																		   = ""
+																   data-name = "" data-url = ""
+																   data-cover = ""
+																   data-lrc = "" >
+																	<i class = "fa fa-play-circle i-2x" > </i > </a >
+															</div >
+														</div >
+														<!--<a href="#">-->
+														<img alt = "" class = "r r-2x img-full NewMusicCover"
+														     src = "images/a2.png" />
+														<!--</a>-->
+													</div >
+													<div class = "padder-v" >
+														<span class = "text-ellipsis NewMusicName" >
+															Spring rain
+														</span >
+														<span class = "text-ellipsis text-xs text-muted NewMusicArtist" >
+															Miaow
+														</span >
+													</div >
+												</div >
+											</div >
+											<div class = "col-xs-6 col-sm-3" >
+												<div class = "item" >
+													<div class = "pos-rlt" >
+														<div class = "item-overlay opacity r r-2x bg-black" >
+															<div class = "center text-center m-t-n" >
+																<a class = "NewMusicPlayNow" href = "javascript:void(0)"
+																   onclick = "PlaySong(this)" data-songer
+																		   = ""
+																   data-name = "" data-url = ""
+																   data-cover = ""
+																   data-lrc = "" >
+																	<i class = "fa fa-play-circle i-2x" > </i > </a >
+															</div >
+														</div >
+														<!--<a href="#">-->
+														<img alt = "" class = "r r-2x img-full NewMusicCover"
+														     src = "images/a2.png" />
+														<!--</a>-->
+													</div >
+													<div class = "padder-v" >
+														<span class = "text-ellipsis NewMusicName" >
+															Spring rain
+														</span >
+														<span class = "text-ellipsis text-xs text-muted NewMusicArtist" >
+															Miaow
+														</span >
+													</div >
+												</div >
+											</div >
+											<div class = "col-xs-6 col-sm-3" >
+												<div class = "item" >
+													<div class = "pos-rlt" >
+														<div class = "item-overlay opacity r r-2x bg-black" >
+															<div class = "center text-center m-t-n" >
+																<a class = "NewMusicPlayNow" href = "javascript:void(0)"
+																   onclick = "PlaySong(this)" data-songer
+																		   = ""
+																   data-name = "" data-url = ""
+																   data-cover = ""
+																   data-lrc = "" >
+																	<i class = "fa fa-play-circle i-2x" > </i > </a >
+															</div >
+														</div >
+														<!--<a href="#">-->
+														<img alt = "" class = "r r-2x img-full NewMusicCover"
+														     src = "images/a2.png" />
+														<!--</a>-->
+													</div >
+													<div class = "padder-v" >
+														<span class = "text-ellipsis NewMusicName" >
+															Spring rain
+														</span >
+														<span class = "text-ellipsis text-xs text-muted NewMusicArtist" >
+															Miaow
+														</span >
+													</div >
+												</div >
+											</div >
+											<div class = "col-xs-6 col-sm-3" >
+												<div class = "item" >
+													<div class = "pos-rlt" >
+														<div class = "item-overlay opacity r r-2x bg-black" >
+															<div class = "center text-center m-t-n" >
+																<a class = "NewMusicPlayNow" href = "javascript:void(0)"
+																   onclick = "PlaySong(this)" data-songer
+																		   = ""
+																   data-name = "" data-url = ""
+																   data-cover = ""
+																   data-lrc = "" >
+																	<i class = "fa fa-play-circle i-2x" > </i > </a >
+															</div >
+														</div >
+														<!--<a href="#">-->
+														<img alt = "" class = "r r-2x img-full NewMusicCover"
+														     src = "images/a2.png" />
+														<!--</a>-->
+													</div >
+													<div class = "padder-v" >
+														<span class = "text-ellipsis NewMusicName" >
+															Spring rain
+														</span >
+														<span class = "text-ellipsis text-xs text-muted NewMusicArtist" >
+															Miaow
+														</span >
+													</div >
+												</div >
+											</div >
+											<div class = "col-xs-6 col-sm-3" >
+												<div class = "item" >
+													<div class = "pos-rlt" >
+														<div class = "item-overlay opacity r r-2x bg-black" >
+															<div class = "center text-center m-t-n" >
+																<a class = "NewMusicPlayNow" href = "javascript:void(0)"
+																   onclick = "PlaySong(this)" data-songer
+																		   = ""
+																   data-name = "" data-url = ""
+																   data-cover = ""
+																   data-lrc = "" >
+																	<i class = "fa fa-play-circle i-2x" > </i > </a >
+															</div >
+														</div >
+														<!--<a href="#">-->
+														<img alt = "" class = "r r-2x img-full NewMusicCover"
+														     src = "images/a2.png" />
+														<!--</a>-->
+													</div >
+													<div class = "padder-v" >
+														<span class = "text-ellipsis NewMusicName" >
+															Spring rain
+														</span >
+														<span class = "text-ellipsis text-xs text-muted NewMusicArtist" >
+															Miaow
+														</span >
+													</div >
+												</div >
+											</div >
+										</div >
+									</div >
+									<div class = "col-md-5" >
+										<h3 class = "font-thin" >
+											换个口味儿?
+										</h3 >
+										<div class = "list-group bg-white list-group-lg no-bg auto" >
+											<a class = "list-group-item clearfix ChangeTaste" href =
+													"javascript:void(0)"
+											   onclick="PlaySong(this)"
+											   data-url = ""
+											   data-songer = "" data-name = ""
+											   data-cover = ""
+											   data-lrc = ""
+											>
+                                                        <span class = "pull-right h2 text-muted m-l" >
+                                                            1
+                                                        </span > <span class = "pull-left thumb-sm avatar m-r" >
+                                                            <img class = "changeTasteCover" alt = "..." src = "" >
+                                                            </img >
+                                                        </span > <span class = "clear" >
+                                                            <span class = "ChangeTasteMusicName" >
+                                                                Little Town
+                                                            </span >
+                                                            <small
+		                                                            class = "text-muted clear text-ellipsis ChangeTasteMusicSonger" >
+                                                                by Chris Fox
+                                                            </small >
+                                                        </span > </a >
+											<a class = "list-group-item clearfix ChangeTaste" href =
+													"javascript:void(0)"
+											   onclick="PlaySong(this)"
+											   data-url = ""
+											   data-songer = "" data-name = ""
+											   data-cover = ""
+											   data-lrc = ""
+											>
+                                                        <span class = "pull-right h2 text-muted m-l" >
+                                                            2
+                                                        </span > <span class = "pull-left thumb-sm avatar m-r" >
+                                                            <img class = "changeTasteCover" alt = "..." src = "" >
+                                                            </img >
+                                                        </span > <span class = "clear" >
+                                                            <span class = "ChangeTasteMusicName" >
+                                                                Little Town
+                                                            </span >
+                                                            <small
+		                                                            class = "text-muted clear text-ellipsis ChangeTasteMusicSonger" >
+                                                                by Chris Fox
+                                                            </small >
+                                                        </span > </a >
+											<a class = "list-group-item clearfix ChangeTaste" href =
+													"javascript:void(0)"
+											   onclick="PlaySong(this)"
+											   data-url = ""
+											   data-songer = "" data-name = ""
+											   data-cover = ""
+											   data-lrc = ""
+											>
+                                                        <span class = "pull-right h2 text-muted m-l" >
+                                                            3
+                                                        </span > <span class = "pull-left thumb-sm avatar m-r" >
+                                                            <img class = "changeTasteCover" alt = "..." src = "" >
+                                                            </img >
+                                                        </span > <span class = "clear" >
+                                                            <span class = "ChangeTasteMusicName" >
+                                                                Little Town
+                                                            </span >
+                                                            <small
+		                                                            class = "text-muted clear text-ellipsis ChangeTasteMusicSonger" >
+                                                                by Chris Fox
+                                                            </small >
+                                                        </span > </a >
+											<a class = "list-group-item clearfix ChangeTaste" href =
+													"javascript:void(0)"
+											   onclick="PlaySong(this)"
+											   data-url = ""
+											   data-songer = "" data-name = ""
+											   data-cover = ""
+											   data-lrc = ""
+											>
+                                                        <span class = "pull-right h2 text-muted m-l" >
+                                                            4
+                                                        </span > <span class = "pull-left thumb-sm avatar m-r" >
+                                                            <img class = "changeTasteCover" alt = "..." src = "" >
+                                                            </img >
+                                                        </span > <span class = "clear" >
+                                                            <span class = "ChangeTasteMusicName" >
+                                                                Little Town
+                                                            </span >
+                                                            <small
+		                                                            class = "text-muted clear text-ellipsis ChangeTasteMusicSonger" >
+                                                                by Chris Fox
+                                                            </small >
+                                                        </span > </a >
+											<a class = "list-group-item clearfix ChangeTaste" href =
+													"javascript:void(0)"
+											   onclick="PlaySong(this)"
+											   data-url = ""
+											   data-songer = "" data-name = ""
+											   data-cover = ""
+											   data-lrc = ""
+											>
+                                                        <span class = "pull-right h2 text-muted m-l" >
+                                                            5
+                                                        </span > <span class = "pull-left thumb-sm avatar m-r" >
+                                                            <img class = "changeTasteCover" alt = "..." src = "" >
+                                                            </img >
+                                                        </span > <span class = "clear" >
+                                                            <span class = "ChangeTasteMusicName" >
+                                                                Little Town
+                                                            </span >
+                                                            <small
+		                                                            class = "text-muted clear text-ellipsis ChangeTasteMusicSonger" >
+                                                                by Chris Fox
+                                                            </small >
+                                                        </span > </a >
+											<a class = "list-group-item clearfix ChangeTaste" href =
+													"javascript:void(0)"
+											   onclick="PlaySong(this)"
+											   data-url = ""
+											   data-songer = "" data-name = ""
+											   data-cover = ""
+											   data-lrc = ""
+											>
+                                                        <span class = "pull-right h2 text-muted m-l" >
+                                                            6
+                                                        </span > <span class = "pull-left thumb-sm avatar m-r" >
+                                                            <img class = "changeTasteCover" alt = "..." src = "" >
+                                                            </img >
+                                                        </span > <span class = "clear" >
+                                                            <span class = "ChangeTasteMusicName" >
+                                                                Little Town
+                                                            </span >
+                                                            <small
+		                                                            class = "text-muted clear text-ellipsis ChangeTasteMusicSonger" >
+                                                                by Chris Fox
+                                                            </small >
+                                                        </span > </a >
+											<a class = "list-group-item clearfix ChangeTaste" href =
+													"javascript:void(0)"
+											   onclick="PlaySong(this)"
+											   data-url = ""
+											   data-songer = "" data-name = ""
+											   data-cover = ""
+											   data-lrc = ""
+											>
+                                                        <span class = "pull-right h2 text-muted m-l" >
+                                                            7
+                                                        </span > <span class = "pull-left thumb-sm avatar m-r" >
+                                                            <img class = "changeTasteCover" alt = "..." src = "" >
+                                                            </img >
+                                                        </span > <span class = "clear" >
+                                                            <span class = "ChangeTasteMusicName" >
+                                                                Little Town
+                                                            </span >
+                                                            <small
+		                                                            class = "text-muted clear text-ellipsis ChangeTasteMusicSonger" >
+                                                                by Chris Fox
+                                                            </small >
+                                                        </span > </a >
+											<a class = "list-group-item clearfix ChangeTaste" href =
+													"javascript:void(0)"
+											   onclick="PlaySong(this)"
+											   data-url = ""
+											   data-songer = "" data-name = ""
+											   data-cover = ""
+											   data-lrc = ""
+											>
+                                                        <span class = "pull-right h2 text-muted m-l" >
+                                                            8
+                                                        </span > <span class = "pull-left thumb-sm avatar m-r" >
+                                                            <img class = "changeTasteCover" alt = "..." src = "" >
+                                                            </img >
+                                                        </span > <span class = "clear" >
+                                                            <span class = "ChangeTasteMusicName" >
+                                                                Little Town
+                                                            </span >
+                                                            <small
+		                                                            class = "text-muted clear text-ellipsis ChangeTasteMusicSonger" >
+                                                                by Chris Fox
+                                                            </small >
+                                                        </span > </a >
+											<!--在加两行-->
+										</div >
+									</div >
+								</div >
+								<div class = "row m-t-lg m-b-lg" >
+								</div >
+							</section >
+							<footer class = "footer" >
+								<div id = "player" style = "width: 100%" ></div >
+							</footer >
+						</section >
+					</section >
+					<!-- side content -->
+				</section >
+				<a class = "hide nav-off-screen-block" data-target = "#nav,html" data-toggle = "class:nav-off-screen,open" href = "#" > </a >
+			</section >
+		</section >
+	</section >
+</section >
+<!-- Bootstrap -->
+<script src = "js/bootstrap.js" >
+</script >
+<script src = "js/app.js" >
+</script >
+<script src = "js/slimscroll/jquery.slimscroll.min.js" >
+</script >
+<script src = "js/app.plugin.js" >
+</script >
+<script src = "js/Aplayer/APlayer.min.js" ></script >
+<script src = "js/indexFun.js" type = "text/javascript" ></script >
+<script src = "js/Aplayer/IndexAp.js" ></script >
+</body >
+</html >

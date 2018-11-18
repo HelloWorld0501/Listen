@@ -1,0 +1,15 @@
+D:\ListenMusic\src\main\java\ListenMusic\dao\UserCollectDao.java
+D:\ListenMusic\src\main\java\ListenMusic\model\User.java
+D:\ListenMusic\src\main\java\ListenMusic\dao\MusicInfoDao.java
+D:\ListenMusic\src\main\java\ListenMusic\model\MusicInfo.java
+D:\ListenMusic\src\main\java\ListenMusic\controller\RegController.java
+D:\ListenMusic\src\main\java\ListenMusic\controller\LoginControl.java
+D:\ListenMusic\src\main\java\ListenMusic\controller\RootController.java
+D:\ListenMusic\src\main\java\ListenMusic\dao\UserDao.java
+D:\ListenMusic\src\main\java\ListenMusic\model\UserCollection.java
+D:\ListenMusic\src\main\java\ListenMusic\controller\CollectionController.java
+D:\ListenMusic\src\main\java\ListenMusic\controller\IndexController.java
+D:\ListenMusic\src\main\java\ListenMusic\model\Songer.java
+D:\ListenMusic\src\main\java\ListenMusic\controller\AdminController.java
+D:\ListenMusic\src\main\java\ListenMusic\dao\SongerDao.java
+D:\ListenMusic\src\main\java\ListenMusic\controller\SongerController.java
